@@ -15,9 +15,15 @@ async function bootstrap() {
 
       /*Prohibe enviar params que no se necesitan, e invalida la peticion*/
       forbidNonWhitelisted: true, 
+
+      /*Para transformar los datos a los tipos que se necesitan*/
+      transform: true,
+      transformOptions: {
+        enableImplicitConversion: true
+      }
     })
   );
 
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT!);
 }
 bootstrap();
